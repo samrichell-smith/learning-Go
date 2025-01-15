@@ -1,0 +1,14 @@
+# Binaries
+*.exe
+*.out
+*.o
+
+# Logs
+*.log
+
+# Dependency directories
+vendor/
+
+# IDE settings
+.vscode/
+.idea/

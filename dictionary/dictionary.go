@@ -1,14 +1,9 @@
 package dictionary
 
-
-
 type Dictionary map[string]string
 
-
-
-
 const (
-	ErrNotFound = DictionaryErr("could not find the word you were looking for")
+	ErrNotFound   = DictionaryErr("could not find the word you were looking for")
 	ErrWordExists = DictionaryErr("cannot add word because it already exists")
 )
 
@@ -41,6 +36,9 @@ func (d Dictionary) Add(word string, definition string) error {
 		return err
 	}
 
-
 	return nil
+}
+
+func (d Dictionary) Update(word, newDefinition string) {
+	d[word] = newDefinition
 }

@@ -2,9 +2,7 @@ package dictionary
 
 import "errors"
 
-func Search(dictionary map[string]string, word string) string {
-	return dictionary[word]
-}
+
 
 type Dictionary map[string]string
 
@@ -19,4 +17,8 @@ func (d Dictionary) Search(word string) (string, error) {
 	}
 
 	return definition, nil
+}
+
+func (d Dictionary) Add(word string, definition string) {
+	d[word] = definition
 }

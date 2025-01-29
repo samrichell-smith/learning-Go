@@ -1,4 +1,4 @@
-package DI
+package main
 
 import (
 	"bytes"

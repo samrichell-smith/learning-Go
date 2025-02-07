@@ -19,6 +19,14 @@ func TestWalk(t *testing.T) {
 			}{"Sam"},
 			[]string{"Sam"},
 		},
+		{
+			"struct with two string fields",
+			struct {
+				Name string
+				City string
+			}{"Sam", "London"},
+			[]string{"Sam", "London"},
+		},
 	}
 
 	for _, test := range cases {

@@ -19,4 +19,5 @@ func TestWalk(t *testing.T) {
 		t.Errorf("wrong number of function calls, got %d want %d", len(got), 1)
 
 	}
+
 }

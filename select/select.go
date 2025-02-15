@@ -23,6 +23,8 @@ func ConfigurableRacer(URL1, URL2 string, timeout time.Duration) (winner string,
 	}
 }
 
+// ping makes a channel with a generic struct type, returns the channel
+
 func ping(url string) chan struct{} {
 	ch := make(chan struct{})
 	go func() {

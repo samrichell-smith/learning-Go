@@ -7,6 +7,8 @@ import (
 
 // test driven development is the practice of writing tests first, and then writing code to satisfy the tests. This ensures our code satisfies
 // behaviours we want it to have, so we make an efficient function for instance. This is as opposed to writing a function first, then testing it, then fixing it when it breaks the tests. However this relies on writing good tests typically testing specific behaviour that we expect as opposed to actual scenarios
+
+// establishes a set of test cases, then runs each of them with a loop
 func TestWalk(t *testing.T) {
 
 	cases := []struct {

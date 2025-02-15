@@ -8,6 +8,7 @@ type result struct {
 
 // makes a map of strings, the website names, as keys to a boolean value as to if it is visited
 // creates a channel that takes structs of type result, which we have previously created
+// for each url, create a goroutine with an anonymous function
 
 func CheckWebsites(wc WebsiteChecker, urls []string) map[string]bool {
 	results := make(map[string]bool)

@@ -6,6 +6,8 @@ type result struct {
 	bool
 }
 
+// makes a map of strings, the website names, as keys to a boolean value as to if it is visited
+
 func CheckWebsites(wc WebsiteChecker, urls []string) map[string]bool {
 	results := make(map[string]bool)
 	resultChannel := make(chan result)
@@ -20,8 +22,6 @@ func CheckWebsites(wc WebsiteChecker, urls []string) map[string]bool {
 		r := <-resultChannel
 		results[r.string] = r.bool
 	}
-
-	
 
 	return results
 }

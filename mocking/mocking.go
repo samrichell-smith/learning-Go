@@ -15,9 +15,10 @@ func main() {
 }
 
 const finalWord = "Go!"
-const countdownStart = 3
 const write = "write"
 const sleep = "sleep"
+
+// an interface creates a struct, defining what can be a struct of this type is any struct with the matching name, in this case Sleep()
 
 type Sleeper interface {
 	Sleep()

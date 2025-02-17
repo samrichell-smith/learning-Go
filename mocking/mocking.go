@@ -8,11 +8,11 @@ import (
 	"time"
 )
 
+// Main creates a sleeper object with the following props, then runs countdown on it
 func main() {
 	sleeper := &ConfigurableSleeper{1 * time.Second, time.Sleep}
 	Countdown(os.Stdout, sleeper)
 }
-
 
 const finalWord = "Go!"
 const countdownStart = 3
@@ -29,14 +29,13 @@ type SpySleeper struct {
 
 type DefaultSleeper struct{}
 
-
 type SpyCountdownOperations struct {
 	Calls []string
 }
 
 type ConfigurableSleeper struct {
 	duration time.Duration
-	sleep func(time.Duration)
+	sleep    func(time.Duration)
 }
 
 type SpyTime struct {
@@ -64,7 +63,7 @@ func (d *DefaultSleeper) Sleep() {
 	time.Sleep(1 * time.Second)
 }
 
-func (s *SpySleeper) Sleep(){
+func (s *SpySleeper) Sleep() {
 	s.Calls++
 }
 

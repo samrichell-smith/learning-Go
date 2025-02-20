@@ -107,9 +107,13 @@ func TestServer(t *testing.T) {
 		time.AfterFunc(5*time.Millisecond, cancel)
 		request = request.WithContext(cancellingCtx)
 
-		response := httptest.NewRecorder()
+		response := &SpyResponseWriter{}
 
 		svr.ServeHTTP(response, request)
+
+		if response.written {
+			t.Error("a response should not have been written")
+		}
 
 		
 	})

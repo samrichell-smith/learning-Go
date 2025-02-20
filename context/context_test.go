@@ -24,18 +24,23 @@ func (s *SpyStore) Cancel() {
 
 func TestServer(t *testing.T) {
 
-	t.Run("default server test", func(t *testing.T) {
+	t.Run("returns data from store", func(t *testing.T) {
 		data := "hello, world"
-	svr := Server(&SpyStore{response: data})
+		store := &SpyStore{response: data}
+		svr := Server(store)
 
-	request := httptest.NewRequest(http.MethodGet, "/", nil)
-	response := httptest.NewRecorder()
+		request := httptest.NewRequest(http.MethodGet, "/", nil)
+		response := httptest.NewRecorder()
 
-	svr.ServeHTTP(response, request)
+		svr.ServeHTTP(response, request)
 
-	if response.Body.String() != data {
-		t.Errorf(`got "%s", want "%s"`, response.Body.String(), data)
-	}
+		if response.Body.String() != data {
+			t.Errorf(`got "%s", want "%s"`, response.Body.String(), data)
+		}
+
+		if store.cancelled {
+			t.Error("it should not have cancelled the store")
+		}
 	})
 	
 
